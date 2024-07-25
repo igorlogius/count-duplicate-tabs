@@ -1,6 +1,6 @@
 {
   "author": "igorlogius",
-  "homepage_url": "https://github.com/igorlogius/Count-duplicate-tabs",
+  "homepage_url": "https://github.com/igorlogius/count-duplicate-tabs",
   "background": {
     "scripts": ["background.js"]
   },
@@ -14,5 +14,5 @@
   "name": "Count Duplicate Tabs",
   "description": "Shows the total amount of duplicate tabs and allows to close them - Same URLs in different containers are not treated as duplicates",
   "permissions": ["cookies", "tabs"],
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
