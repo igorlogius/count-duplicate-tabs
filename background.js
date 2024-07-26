@@ -60,6 +60,8 @@ async function getDups() {
 async function delDups() {
   if (dupTabIds.length > 0) {
     await browser.tabs.remove(dupTabIds);
+    browser.browserAction.setBadgeText({ text: "" });
+    browser.browserAction.setTitle({ title: "Count Duplicate Tabs" });
   }
 }
 
@@ -67,14 +69,17 @@ async function updateBA() {
   dupTabIds = await getDups();
   if (dupTabIds.length > 0) {
     browser.browserAction.setBadgeText({ text: "" + dupTabIds.length });
+    browser.browserAction.setTitle({
+      title: "#Duplicates: " + dupTabIds.length,
+    });
   } else {
     browser.browserAction.setBadgeText({ text: "" });
+    browser.browserAction.setTitle({ title: "Count Duplicate Tabs" });
   }
 }
 
 browser.browserAction.onClicked.addListener(async (tab, info) => {
   browser.browserAction.disable();
-  console.debug(info);
   if (info.button === 1) {
     await delDups();
   } else {
